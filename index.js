@@ -1,17 +1,8 @@
 /* eslint-disable indent, no-magic-numbers */
 
-/*
- *
- * Service:Library
- * Vinyl - A record store
- *
- */
-
 (() => {
-
-  /*
-  Dependencies
-  */
+  
+  // Dependencies
 
   const _ = {
     toSingular: string => {
@@ -28,10 +19,8 @@
       return result;
     }
   };
-
-  /*
-  Framework
-  */
+  
+  // Framework
 
   const RecordType = {
     id: String,
@@ -57,7 +46,9 @@
         })) || [];
 
       let result = [];
-
+      
+      // first alphabetical
+      
       const alphabetical = index
         .filter(({ id = '', name = '', description = '' }) => (
           id.substring(0, exclude.length) !== exclude && (
@@ -70,7 +61,9 @@
             ? -1
             : 1
         ));
-
+      
+      // then exact match
+      
       alphabetical.forEach((record, index) => {
         const criteria = (
           record?.name.toLowerCase().trim() === search.toLowerCase().trim()
@@ -81,7 +74,9 @@
           alphabetical.splice(index, 1);
         }
       });
-
+      
+      // then starts with
+      
       alphabetical.forEach((record, index) => {
         const criteria = (
           record?.name.toLowerCase().substring(0, 2) === search.toLowerCase().substring(0, 2)
@@ -92,7 +87,9 @@
           alphabetical.splice(index, 1);
         }
       });
-
+      
+      // lastly, first letter
+      
       alphabetical.forEach((record, index) => {
         const criteria = (
           record?.name.toLowerCase().charAt(0) === search.toLowerCase().charAt(0)
@@ -103,7 +100,9 @@
           alphabetical.splice(index, 1);
         }
       });
-
+      
+      // include all
+      
       return [
         ...result,
         ...alphabetical
@@ -159,10 +158,8 @@
         );
     }
   }
-
-  /*
-  Exports
-  */
+  
+  // Exports
 
   module.exports = {
     RecordType,
