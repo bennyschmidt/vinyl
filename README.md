@@ -3,8 +3,7 @@ A record store. Originals only!
 
 #### What is Vinyl?
 
-Vinyl is a simple Object Graph Mapper (OGM) designed for interfacing with static, immutable application objects. 
-
+Vinyl is a library for managing static, immutable application objects. 
 
 #### What does that mean?
 
@@ -16,7 +15,7 @@ Lets use a video game as an example use case: It doesn't make sense to save all 
 
 #### Doesn't this already exist?
 
-If you've used Ruby, it's kinda like ActiveRecord, except that the entire objects are not cached, only their relations, and the record is put together only when it's accessed. If you've used Neo4j, it's kinda like their OGM. The main difference between both of those technologies and Vinyl is that Vinyl is 100% database-agnostic, or you can run it without a database.
+If you've used Rails, it's kinda like their ActiveRecord ORM, except that the entire objects are not cached, only their relations, and the record is put together only when it's accessed. If you've used Neo4j, it's kinda like their OGM. In the NoSQL world, it would be an ODM (D for document). You can also use it without a database as a simple utility/wrapper around runtime data.
 
 ##### Card game example:
 
